@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeConnect - Learn Coding Together</title>
+    <title>CodeConnect - Fix GitHub Pages 404 Error</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,6 +13,7 @@
             --text: #adbac7;
             --text-light: #cdd9e5;
             --success: #57ab5a;
+            --error: #e5534b;
         }
         
         * {
@@ -116,6 +117,22 @@
             color: var(--text);
         }
         
+        .error-section {
+            background-color: var(--error);
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        
+        .error-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
         .features {
             padding: 4rem 1rem;
             background-color: var(--primary);
@@ -157,9 +174,55 @@
             color: var(--text-light);
         }
         
-        .community {
+        .tutorial {
             padding: 4rem 1rem;
             background-color: var(--secondary);
+        }
+        
+        .steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 2rem;
+            background-color: var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .step-number {
+            background-color: var(--accent);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 80px;
+        }
+        
+        .step-content {
+            padding: 1.5rem;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        
+        code {
+            background-color: #1c2128;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .community {
+            padding: 4rem 1rem;
+            background-color: var(--primary);
         }
         
         .community-content {
@@ -177,7 +240,7 @@
         .community-image {
             flex: 1;
             min-width: 300px;
-            background-color: var(--primary);
+            background-color: var(--secondary);
             height: 300px;
             border-radius: 10px;
             display: flex;
@@ -301,6 +364,15 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                min-width: 100%;
+                padding: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -313,9 +385,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#features">Features</a></li>
+                    <li><a href="#fix">Fix 404 Error</a></li>
+                    <li><a href="#tutorial">Tutorial</a></li>
                     <li><a href="#community">Community</a></li>
-                    <li><a href="#resources">Resources</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -325,30 +397,80 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Connect, Learn, and Grow as a Developer</h1>
-            <p>Join a community of passionate coders who help each other learn new skills, collaborate on projects, and advance their careers.</p>
-            <a href="#join" class="btn">Get Started</a>
+            <h1>Fix GitHub Pages 404 Error</h1>
+            <p>Learn how to troubleshoot and resolve the "There isn't a GitHub Pages site here" error and successfully deploy your coding community website.</p>
+            <a href="#tutorial" class="btn">View Tutorial</a>
         </div>
     </section>
 
-    <section class="features" id="features">
+    <div class="container">
+        <div class="error-section">
+            <h2><i class="fas fa-exclamation-circle"></i> There isn't a GitHub Pages site here</h2>
+            <p>This error typically occurs when GitHub Pages hasn't been properly configured or your content hasn't been pushed to the correct branch.</p>
+        </div>
+    </div>
+
+    <section class="tutorial" id="tutorial">
         <div class="container">
-            <h2 class="section-title">How It Works</h2>
+            <h2 class="section-title">How to Fix GitHub Pages 404 Error</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Check Repository Name</h3>
+                        <p>Your repository must be named exactly <code>username.github.io</code> (replace "username" with your GitHub username). This naming is case-sensitive.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Enable GitHub Pages</h3>
+                        <p>Go to your repository Settings → Pages → Source. Select your deployment branch (usually "main" or "master") and folder (typically "/root").</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Check File Structure</h3>
+                        <p>Your main HTML file must be named <code>index.html</code> and placed in the root of your repository or the selected folder.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Wait for Deployment</h3>
+                        <p>It can take up to 10 minutes for your site to deploy after you push changes. Check the GitHub Pages section of your repository settings for deployment status.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Check for Build Errors</h3>
+                        <p>If you're using Jekyll or another static site generator, check for build errors in the Actions tab of your repository.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="fix">
+        <div class="container">
+            <h2 class="section-title">Troubleshooting Tips</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Join the Community</h3>
-                    <p>Create an account and connect with other learners and mentors in your coding journey.</p>
+                    <i class="fas fa-folder-open"></i>
+                    <h3>Check File Location</h3>
+                    <p>Ensure your index.html file is in the root directory of your repository, not in a subfolder (unless you configured it that way).</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-project-diagram"></i>
-                    <h3>Collaborate on Projects</h3>
-                    <p>Work on real-world projects with other community members to build your portfolio.</p>
+                    <i class="fas fa-code-branch"></i>
+                    <h3>Correct Branch</h3>
+                    <p>Make sure you've pushed your files to the correct branch (usually "main" or "master") that you selected in GitHub Pages settings.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Learn Together</h3>
-                    <p>Participate in study groups, code reviews, and weekly coding challenges.</p>
+                    <i class="fas fa-redo-alt"></i>
+                    <h3>Hard Refresh</h3>
+                    <p>After deploying, clear your browser cache or do a hard refresh (Ctrl+F5) to ensure you're not seeing a cached version of the page.</p>
                 </div>
             </div>
         </div>
@@ -356,10 +478,10 @@
 
     <section class="community" id="community">
         <div class="container">
-            <h2 class="section-title">Our Community</h2>
+            <h2 class="section-title">Join Our Coding Community</h2>
             <div class="community-content">
                 <div class="community-text">
-                    <h3>Connect with Coders Worldwide</h3>
+                    <h3>Learn Together, Grow Together</h3>
                     <p>Our community brings together developers of all skill levels from around the world. Whether you're just starting your coding journey or you're an experienced developer looking to share knowledge, you'll find your place here.</p>
                     <p>We have specialized channels for different programming languages, frameworks, and areas of interest including web development, data science, mobile development, and more.</p>
                     <p>Join our weekly virtual meetups, participate in hackathons, and get feedback on your code from experienced developers.</p>
@@ -374,8 +496,8 @@
     <section class="cta" id="join">
         <div class="container">
             <div class="cta-box">
-                <h2>Join Our Coding Community</h2>
-                <p>Ready to start your journey? Fill out the form below to get started and connect with other developers.</p>
+                <h2>Get Help With Your Deployment</h2>
+                <p>Still having trouble with GitHub Pages? Join our community and get help from experienced developers who've been through the same process.</p>
                 <form id="joinForm">
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
@@ -385,7 +507,7 @@
                         <option value="intermediate">Intermediate</option>
                         <option value="advanced">Advanced</option>
                     </select>
-                    <textarea placeholder="What are you hoping to learn or contribute?"></textarea>
+                    <textarea placeholder="What issues are you facing with GitHub Pages?"></textarea>
                     <button type="submit" class="btn">Join Now</button>
                 </form>
             </div>
@@ -401,9 +523,9 @@
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <p><a href="#features">Features</a></p>
+                    <p><a href="#fix">Troubleshooting</a></p>
+                    <p><a href="#tutorial">Tutorial</a></p>
                     <p><a href="#community">Community</a></p>
-                    <p><a href="#resources">Resources</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
@@ -426,7 +548,7 @@
         // Form submission handling
         document.getElementById('joinForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thanks for your interest! We\'ll be in touch soon to welcome you to our community.');
+            alert('Thanks for your interest! We\'ll be in touch soon to help with your GitHub Pages deployment.');
             this.reset();
         });
         
