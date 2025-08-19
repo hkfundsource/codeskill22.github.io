@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeConnect - Learn Coding Together</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2d333b;
+            --secondary: #22272e;
+            --accent: #539bf5;
+            --text: #adbac7;
+            --text-light: #cdd9e5;
+            --success: #57ab5a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--secondary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #4184e6;
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            padding: 4rem 1rem;
+            text-align: center;
+            background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text);
+        }
+        
+        .features {
+            padding: 4rem 1rem;
+            background-color: var(--primary);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-light);
+            font-size: 2.2rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--secondary);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        
+        .community {
+            padding: 4rem 1rem;
+            background-color: var(--secondary);
+        }
+        
+        .community-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .community-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .community-image {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--primary);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .community-image i {
+            font-size: 8rem;
+            color: var(--accent);
+            opacity: 0.7;
+        }
+        
+        .cta {
+            padding: 4rem 1rem;
+            text-align: center;
+            background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+        }
+        
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--secondary);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-box h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .cta-box p {
+            margin-bottom: 2rem;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        input, textarea {
+            padding: 1rem;
+            border-radius: 5px;
+            border: 1px solid #444c56;
+            background-color: var(--primary);
+            color: var(--text);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444c56;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <span>CodeConnect</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#join" class="btn">Join Us</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Connect, Learn, and Grow as a Developer</h1>
+            <p>Join a community of passionate coders who help each other learn new skills, collaborate on projects, and advance their careers.</p>
+            <a href="#join" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Join the Community</h3>
+                    <p>Create an account and connect with other learners and mentors in your coding journey.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Collaborate on Projects</h3>
+                    <p>Work on real-world projects with other community members to build your portfolio.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Learn Together</h3>
+                    <p>Participate in study groups, code reviews, and weekly coding challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community" id="community">
+        <div class="container">
+            <h2 class="section-title">Our Community</h2>
+            <div class="community-content">
+                <div class="community-text">
+                    <h3>Connect with Coders Worldwide</h3>
+                    <p>Our community brings together developers of all skill levels from around the world. Whether you're just starting your coding journey or you're an experienced developer looking to share knowledge, you'll find your place here.</p>
+                    <p>We have specialized channels for different programming languages, frameworks, and areas of interest including web development, data science, mobile development, and more.</p>
+                    <p>Join our weekly virtual meetups, participate in hackathons, and get feedback on your code from experienced developers.</p>
+                </div>
+                <div class="community-image">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="join">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Join Our Coding Community</h2>
+                <p>Ready to start your journey? Fill out the form below to get started and connect with other developers.</p>
+                <form id="joinForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <select required>
+                        <option value="" disabled selected>Your Skill Level</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                    <textarea placeholder="What are you hoping to learn or contribute?"></textarea>
+                    <button type="submit" class="btn">Join Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CodeConnect</h3>
+                    <p>Connecting developers worldwide to learn, grow, and create together.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#features">Features</a></p>
+                    <p><a href="#community">Community</a></p>
+                    <p><a href="#resources">Resources</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: hello@codeconnect.dev</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CodeConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thanks for your interest! We\'ll be in touch soon to welcome you to our community.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
